@@ -2,7 +2,7 @@
 
 namespace DataAccess.Entities;
 
-public class BlogEntity
+public class BlogEntity : IEntity
 {
     [Key]
     public int Id { get; set; }
@@ -14,4 +14,11 @@ public class BlogEntity
     public string Content { get; set; } = string.Empty;
 
     public List<CommentEntity> Comments { get; set; } = new();
+
+    public override string ToString()
+    {
+        var blogToString = string.Empty;
+        blogToString += $"Id: {Id}\nTitle: {Title}\nContent: {Content}";
+        return blogToString;
+    }
 }
